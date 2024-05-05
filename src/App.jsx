@@ -6,12 +6,10 @@ function App() {
   return (
     <>
       <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
-        <div className="flex flex-row-reverse p-5">
+        <div className="flex justify-end p-5">
           <ModeToggle />
         </div>
-        <div className="container mx-auto">
-          <TaskForm />
-        </div>
+        <TaskForm />
       </ThemeProvider>
     </>
   );
