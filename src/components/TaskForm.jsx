@@ -2,13 +2,13 @@ import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 
 function TaskForm() {
   return (
@@ -25,7 +25,12 @@ function TaskForm() {
             </div>
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="description">Description</Label>
-              <Input id="description" placeholder="Description of your task" />
+              <Textarea
+                id="description"
+                placeholder="Description of your task"
+                rows="2"
+                className="min-h-min"
+              />
             </div>
           </div>
         </form>

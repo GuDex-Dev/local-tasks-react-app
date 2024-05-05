@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "title": "Aprender Tailwind",
+    "description": "Ver cursos y crear primer proyecto con Tailwind"
+  },
+  {
+    "id": 2,
+    "title": "Aprender a usar ShadCn",
+    "description": "Terminar proyecto de local tasks react app usando shadcn y almacenamiento local del navegador"
+  }
+]

@@ -1,6 +1,7 @@
 import { ThemeProvider } from "@/components/theme-provider";
 import TaskForm from "./components/TaskForm";
 import ModeToggle from "./components/ModeToggle";
+import TaskCard from "./components/TaskCard";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
           <ModeToggle />
         </div>
         <TaskForm />
+        <TaskCard />
       </ThemeProvider>
     </>
   );
