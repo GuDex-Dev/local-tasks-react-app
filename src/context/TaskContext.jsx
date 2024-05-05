@@ -3,5 +3,7 @@ import { createContext } from "react";
 export const TaskContext = createContext();
 
 export function TaskContextProvider(props) {
-  return <TaskContext.Provider>{props.children}</TaskContext.Provider>;
+  return (
+    <TaskContext.Provider value={4}>{props.children}</TaskContext.Provider>
+  );
 }
