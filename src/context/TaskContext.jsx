@@ -10,19 +10,39 @@ export function TaskContextProvider({ children, ...props }) {
     setTasks([
       ...tasks,
       {
-        id: tasks.length,
+        id: tasks[tasks.length - 1].id + 1,
         title: title,
         description: description,
       },
     ]);
   };
 
-  const mostrar = () => {
+  const deleteTask = (id) => {
+    setTasks(tasks.filter((task) => task.id != id));
+  };
+
+  const editTask = (id, title, description) => {
+    setTasks(
+      tasks.map((task) =>
+        task.id === id
+          ? {
+              id: id,
+              title: title,
+              description: description,
+            }
+          : task
+      )
+    );
+  };
+
+  const test = () => {
     console.log(tasks);
   };
 
   return (
-    <TaskContext.Provider value={{ tasks, addTask, mostrar }}>
+    <TaskContext.Provider
+      value={{ tasks, addTask, deleteTask, editTask: editTask, test }}
+    >
       {children}
     </TaskContext.Provider>
   );

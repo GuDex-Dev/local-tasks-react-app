@@ -1,24 +1,42 @@
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
 
-function TaskCard() {
+import { Button } from "./ui/button";
+import { TaskContext } from "@/context/TaskContext";
+import { useContext } from "react";
+import { cn } from "@/lib/utils";
+
+function TaskCard({ task, className }) {
+  const { editTask, deleteTask } = useContext(TaskContext);
+
   return (
-    <Card className="min-w-60 max-w-96">
-      <CardHeader>
-        <CardTitle>Card Title</CardTitle>
-        <CardDescription>Card Description</CardDescription>
+    <Card className={cn("flex flex-col", className)}>
+      <CardHeader className="">
+        <CardTitle>{task.title}</CardTitle>
       </CardHeader>
-      <CardContent>
-        <p>Card Content</p>
+      <CardContent className="flex-1">
+        <p>{task.description}</p>
       </CardContent>
-      <CardFooter>
-        <p>Card Footer</p>
+      <CardFooter className="flex justify-between">
+        <Button
+          variant="secondary"
+          className="h-9"
+          onClick={() => console.log("Editing")}
+        >
+          More
+        </Button>
+        <Button
+          className="h-9"
+          variant="destructive"
+          onClick={() => deleteTask(task.id)}
+        >
+          Delete
+        </Button>
       </CardFooter>
     </Card>
   );

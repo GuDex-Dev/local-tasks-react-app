@@ -1,6 +1,6 @@
 import TaskForm from "./components/TaskForm";
 import ModeToggle from "./components/ModeToggle";
-import TaskCard from "./components/TaskCard";
+import TaskList from "./components/TaskList";
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
         <ModeToggle />
       </div>
       <TaskForm />
-      <TaskCard />
+      <TaskList />
     </>
   );
 }

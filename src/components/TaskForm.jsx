@@ -13,10 +13,16 @@ import { TaskContext } from "@/context/TaskContext";
 import { useContext, useState } from "react";
 
 function TaskForm() {
-  const { addTask, mostrar } = useContext(TaskContext);
+  const { addTask } = useContext(TaskContext);
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+
+  const handleCreate = () => {
+    addTask(title, description);
+    setTitle("");
+    setDescription("");
+  };
 
   return (
     <Card className="w-[350px] mx-auto">
@@ -49,15 +55,10 @@ function TaskForm() {
           </div>
         </form>
       </CardContent>
-      <CardFooter className="flex justify-between">
-        <Button
-          variant="outline"
-          className="duration-0"
-          onClick={() => mostrar()}
-        >
-          Mostrar
+      <CardFooter className="flex justify-end">
+        <Button className="w-full" onClick={handleCreate}>
+          Create
         </Button>
-        <Button onClick={() => addTask(title, description)}>Create</Button>
       </CardFooter>
     </Card>
   );
