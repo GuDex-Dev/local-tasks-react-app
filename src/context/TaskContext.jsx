@@ -1,10 +1,29 @@
-import { createContext, useState, useContext } from "react";
-import dataJson from "../data/taskdata.json";
+import { createContext, useState } from "react";
+import json from "@/data/taskdata.json";
 
 export const TaskContext = createContext();
 
 export function TaskContextProvider({ children, ...props }) {
-  return <TaskContext.Provider value={1}>{children}</TaskContext.Provider>;
-}
+  const [tasks, setTasks] = useState(json);
 
-export const useData = () => useContext(TaskContext);
+  const addTask = (title, description) => {
+    setTasks([
+      ...tasks,
+      {
+        id: tasks.length,
+        title: title,
+        description: description,
+      },
+    ]);
+  };
+
+  const mostrar = () => {
+    console.log(tasks);
+  };
+
+  return (
+    <TaskContext.Provider value={{ tasks, addTask, mostrar }}>
+      {children}
+    </TaskContext.Provider>
+  );
+}
