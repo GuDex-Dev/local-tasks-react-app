@@ -6,7 +6,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 import { TaskContext } from "@/context/TaskContext";
 import { useContext } from "react";
 import TaskEdit from "@/components/TaskEdit";

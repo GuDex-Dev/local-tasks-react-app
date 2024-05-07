@@ -2,6 +2,8 @@ import TaskForm from "./components/TaskForm";
 import ModeToggle from "./components/ModeToggle";
 import TaskList from "./components/TaskList";
 import { Separator } from "@/components/ui/separator";
+import { useContext, useEffect } from "react";
+import { TaskContext } from "@/context/TaskContext";
 
 function App() {
   return (

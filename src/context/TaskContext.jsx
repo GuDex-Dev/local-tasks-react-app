@@ -1,10 +1,43 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import json from "@/data/taskdata.json";
 
 export const TaskContext = createContext();
 
 export function TaskContextProvider({ children, ...props }) {
   const [tasks, setTasks] = useState(json);
+
+  useEffect(() => {
+    if (tasks == json) {
+      loadLocalStorage();
+    } else {
+      saveLocalStorage();
+    }
+  }, [tasks]);
+
+  const saveLocalStorage = () => {
+    try {
+      window.localStorage.setItem("tasks", JSON.stringify(tasks));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const loadLocalStorage = () => {
+    if (window.localStorage.getItem("tasks")) {
+      setTasks(JSON.parse(window.localStorage.getItem("tasks")));
+      console.log("Antes: " + window.localStorage.getItem("tasks"));
+    } else {
+      console.log("Es nulo");
+    }
+  };
+
+  const clearLocalStorage = () => {
+    try {
+      window.localStorage.removeItem("tasks");
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const addTask = (title, description) => {
     if (tasks.length === 0) {
@@ -45,13 +78,17 @@ export function TaskContextProvider({ children, ...props }) {
     );
   };
 
-  const test = () => {
-    console.log(tasks);
-  };
-
   return (
     <TaskContext.Provider
-      value={{ tasks, addTask, deleteTask, editTask: editTask, test }}
+      value={{
+        tasks,
+        addTask,
+        deleteTask,
+        editTask: editTask,
+        saveLocalStorage,
+        loadLocalStorage,
+        clearLocalStorage,
+      }}
     >
       {children}
     </TaskContext.Provider>
