@@ -7,14 +7,24 @@ export function TaskContextProvider({ children, ...props }) {
   const [tasks, setTasks] = useState(json);
 
   const addTask = (title, description) => {
-    setTasks([
-      ...tasks,
-      {
-        id: tasks[tasks.length - 1].id + 1,
-        title: title,
-        description: description,
-      },
-    ]);
+    if (tasks.length === 0) {
+      setTasks([
+        {
+          id: 1,
+          title: title,
+          description: description,
+        },
+      ]);
+    } else {
+      setTasks([
+        ...tasks,
+        {
+          id: tasks[tasks.length - 1].id + 1,
+          title: title,
+          description: description,
+        },
+      ]);
+    }
   };
 
   const deleteTask = (id) => {
@@ -30,8 +40,8 @@ export function TaskContextProvider({ children, ...props }) {
               title: title,
               description: description,
             }
-          : task
-      )
+          : task,
+      ),
     );
   };
 

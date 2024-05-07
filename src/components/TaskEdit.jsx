@@ -10,6 +10,13 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Button } from "./ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -34,31 +41,33 @@ function TaskEdit({ task }) {
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
-        <AlertDialogHeader>
-          <AlertDialogTitle>Edit Task</AlertDialogTitle>
-        </AlertDialogHeader>
-        <form className="w-full space-y-4">
-          <div className="flex flex-col space-y-1.5">
-            <Label htmlFor="title">Title</Label>
-            <Input
-              id="title"
-              placeholder="Title of your task"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            />
-          </div>
-          <div className="flex flex-col space-y-1.5">
-            <Label htmlFor="description">Description</Label>
-            <Textarea
-              id="description"
-              placeholder="Description of your task"
-              rows="2"
-              className="min-h-10"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            />
-          </div>
-        </form>
+        <CardHeader>
+          <CardTitle>Edit Task</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <form className="w-full space-y-4">
+            <div className="flex flex-col space-y-1.5">
+              <Label htmlFor="title">Title</Label>
+              <Input
+                id="title"
+                placeholder="Title of your task"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+              />
+            </div>
+            <div className="flex flex-col space-y-1.5">
+              <Label htmlFor="description">Description</Label>
+              <Textarea
+                id="description"
+                placeholder="Description of your task"
+                rows="2"
+                className="min-h-10"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
+            </div>
+          </form>
+        </CardContent>
         <AlertDialogFooter>
           <AlertDialogCancel>Cancel</AlertDialogCancel>
           <AlertDialogAction onClick={() => handleEdit()}>

@@ -16,7 +16,7 @@ function TaskList() {
   } else {
     return (
       <>
-        <div className="grid max-w-7xl grid-cols-2 gap-4 p-8 md:grid-cols-3 lg:grid-cols-4">
+        <div className="mx-auto grid max-w-7xl gap-4 p-8 md:grid-cols-3 lg:grid-cols-4 ">
           {tasks.map((task) => {
             return <TaskCard key={task.id} task={task} />;
           })}

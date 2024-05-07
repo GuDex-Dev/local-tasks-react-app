@@ -17,7 +17,7 @@ function TaskCard({ task, className }) {
   return (
     <Card className="flex flex-col">
       <CardHeader className="">
-        <CardTitle>{task.title}</CardTitle>
+        <CardTitle className="max-w-sm break-words">{task.title}</CardTitle>
       </CardHeader>
       <CardContent className="flex-1">
         <p>{task.description}</p>
