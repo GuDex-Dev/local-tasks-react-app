@@ -25,33 +25,31 @@ function TaskForm() {
   };
 
   return (
-    <Card className="w-[350px] mx-auto">
+    <Card className="mx-auto w-[350px]">
       <CardHeader>
         <CardTitle>Create Task</CardTitle>
       </CardHeader>
       <CardContent>
-        <form>
-          <div className="grid w-full items-center gap-4">
-            <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="title">Title</Label>
-              <Input
-                id="title"
-                placeholder="Title of your task"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-              />
-            </div>
-            <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="description">Description</Label>
-              <Textarea
-                id="description"
-                placeholder="Description of your task"
-                rows="2"
-                className="min-h-min"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-              />
-            </div>
+        <form className="w-full space-y-4">
+          <div className="flex flex-col space-y-1.5">
+            <Label htmlFor="title">Title</Label>
+            <Input
+              id="title"
+              placeholder="Title of your task"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+          </div>
+          <div className="flex flex-col space-y-1.5">
+            <Label htmlFor="description">Description</Label>
+            <Textarea
+              id="description"
+              placeholder="Description of your task"
+              rows="2"
+              className="min-h-10"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
           </div>
         </form>
       </CardContent>

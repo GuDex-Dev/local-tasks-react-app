@@ -9,13 +9,13 @@ import {
 import { Button } from "./ui/button";
 import { TaskContext } from "@/context/TaskContext";
 import { useContext } from "react";
-import { cn } from "@/lib/utils";
+import TaskEdit from "@/components/TaskEdit";
 
 function TaskCard({ task, className }) {
-  const { editTask, deleteTask } = useContext(TaskContext);
+  const { deleteTask } = useContext(TaskContext);
 
   return (
-    <Card className={cn("flex flex-col", className)}>
+    <Card className="flex flex-col">
       <CardHeader className="">
         <CardTitle>{task.title}</CardTitle>
       </CardHeader>
@@ -23,13 +23,7 @@ function TaskCard({ task, className }) {
         <p>{task.description}</p>
       </CardContent>
       <CardFooter className="flex justify-between">
-        <Button
-          variant="secondary"
-          className="h-9"
-          onClick={() => console.log("Editing")}
-        >
-          More
-        </Button>
+        <TaskEdit task={task} />
         <Button
           className="h-9"
           variant="destructive"
