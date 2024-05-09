@@ -20,7 +20,7 @@ function TaskCard({ task, className }) {
         <CardTitle className="max-w-sm break-words">{task.title}</CardTitle>
       </CardHeader>
       <CardContent className="flex-1">
-        <p>{task.description}</p>
+        <p className="max-w-sm break-words">{task.description}</p>
       </CardContent>
       <CardFooter className="flex justify-between">
         <TaskEdit task={task} />
